@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bank App</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/images/icons/icon-rounded-96x96.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/icons/icon-rounded-152x152.png">
+    <link href="./css/tailwind.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+    <div x-data="{
+        currentPage: 'page1',
+        showFacial: false,
+        animateOnPage3: false,
+        showModal: false,
+        cards: [
+            { icon: '/images/icons/credit-card.svg', text: 'View Cards' },
+            { icon: '/images/icons/shopping-bag.svg', text: 'Pay Direct' },
+            { icon: '/images/icons/map-pin.svg', text: 'Bank Nearby' }
+        ]
+    }"
+    >
+        <!-- Page 1 -->
+        <div
+            x-show="currentPage === 'page1'"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="transform -translate-x-full opacity-0"
+            x-transition:enter-end="transform translate-x-0 opacity-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="transform translate-x-0 opacity-100"
+            x-transition:leave-end="transform translate-x-full opacity-0"
+            class="fixed grading-background inset-0"
+        >
+
+            <div class="flex justify-between px-5 pt-8">
+                <img class="w-20" src="/images/logo.png" alt="bank">
+                <img class="size-14" src="/images/top-menu-dots.png" alt="navigation">
+            </div>
+
+            <div class="fixed bottom-0 left-4 right-4 py-10">
+                <div class="flex justify-stretch gap-x-2 gap-y-8 flex-wrap">
+                    <button @click="currentPage = 'page2'" type="button" class="w-full shadow-lg py-3.5 inline-flex justify-center items-center text-xl font-semibold rounded-full bg-white text-sky-500 active:bg-sky-200">Log in</button>
+                    <template x-for="card in cards" :key="card.icon">
+                        <div class="text-center py-4 flex-grow bg-sky-50 rounded-3xl shadow-lg">
+                            <img class="inline-flex justify-center w-12 pb-2" :src="card.icon" :alt="card.text">
+                            <p class="text-sm text-slate-500" x-text="card.text"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Page 2 -->
+        <div
+            x-show="currentPage === 'page2'"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="transform translate-x-full opacity-0"
+            x-transition:enter-end="transform translate-x-0 opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="transform translate-x-0 opacity-100"
+            x-transition:leave-end="transform -translate-x-full opacity-0"
+            class="fixed inset-0 flex justify-center items-center bg-slate-950/55"
+            x-init="
+                $watch('currentPage', value => { 
+                    setTimeout(() => showFacial = (value === 'page2'), 800);
+                    if(value === 'page2') setTimeout(() => currentPage = 'page3', 1400);
+                }) 
+            "
+            x-transition:leave="clearTimeout(timer)"
+        >
+            <div class="fixed top-8 left-5 right-5 flex justify-between">
+                <img class="w-8" src="/images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
+                <img class="w-14" src="/images/top-menu-lock.png" alt="navigation">
+            </div>
+        
+            <img x-show="currentPage === 'page2'" class="size-32 animate-pulse" x-bind:class="{'animate-pulse': !showFacial, 'animate-ping': showFacial}" src="/images/face-recognition.svg" alt="facial">
+           
+        </div>
+
+        <!-- Page 3 -->
+        <div
+            x-show="currentPage === 'page3'"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="transform translate-x-full opacity-0"
+            x-transition:enter-end="transform translate-x-0 opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="transform translate-x-0 opacity-100"
+            x-transition:leave-end="transform -translate-x-full opacity-0"
+            class="fixed inset-0 bg-slate-950/40 flex p-4 justify-center items-center"
+            x-init="
+                $nextTick(() => { if (currentPage === 'page3') setTimeout(() => showModal = true, 300); });
+                $watch('currentPage', value => {
+                    if(value === 'page3') setTimeout(() => animateOnPage3 = true, 250); else animateOnPage3 = false;
+                    if(value === 'page3') setTimeout(() => showModal = true, 400); else showModal = false;
+                })"
+        >
+          
+            <img class="w-8 fixed top-11 left-5" src="/images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
+
+            <div 
+                x-bind:class="{'translate-y-[-50%]': animateOnPage3, 'translate-y-0': !animateOnPage3}"
+                class="transition-transform duration-[800ms] backdrop-blur-md text-white/10 grow grid gap-2 grid-cols-2 rounded-3xl border-2 border-white/10 shadow-2xl p-2 pl-6  pb-6"
+            >
+                <div class="self-center col-span-2 text-xl font-semibold">Banking Card.</div>
+                <div><img class="w-20" src="/images/logo-transparent.png" alt="bank"></div>
+                <div class="pt-6">PERSONAL</div><div class="col-span-2 pt-6">VALID UNTIL</div><div></div>
+                <div class="col-span-3 text-lg font-medium">1234 4321 1234 4321</div>
+            </div>
+            
+            <div class="absolute bottom-0 left-0 right-0 bg-slate-200 backdrop-filter backdrop-blur-lg py-6">
+                <div class="flex justify-around items-center">
+                    <img class="w-8" src="/images/icons/home-04.svg" alt="tab">
+                    <img class="w-8" src="/images/icons/bank-note-01.svg" alt="tab" @click="showModal = true">
+                    <img class="w-8" src="/images/icons/piggy-bank-02.svg" alt="tab">
+                    <img class="w-8" src="/images/icons/credit-card-02.svg" alt="tab">
+                </div>
+            </div>
+
+             <!-- Modal Card -->
+            <div
+                x-show="showModal"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="transform translate-y-full"
+                x-transition:enter-end="transform translate-y-0"
+                x-transition:leave="transition ease-in-out duration-300"
+                x-transition:leave-start="transform translate-y-0"
+                x-transition:leave-end="transform translate-y-full"
+                class="w-full max-w-md mx-auto absolute bottom-0 rounded-t-3xl bg-white shadow-xl overflow-hidden p-3"
+                style="height: 64%;"
+            >
+                <div class="p-1 mx-16 rounded bg-sky-100" @click="showModal = false"></div>
+                
+                <div class="flex px-2 py-8 gap-3 items-center">
+                    <img class="size-20" src="/images/logo.png" alt="bank">
+                    <div>
+                        <div class="text-sky-900 font-medium text-lg leading-tight">Direct debit</div>
+                        <div class="text-sm text-sky-700">Today</div>
+                        <div class="text-sm text-sky-700">Receiving money</div>
+                    </div>
+                </div>
+
+                <div class="gap-5 grid px-10 text-sky-700">
+                    <div class="col-span-3 pb-6">
+                        <strong class="text-sky-900 font-bold text-5xl">1.000</strong><span class="text-sky-900 text-3xl font-light">,00 EUR</span>
+                        <div class="italic text-sm pt-1">1BT2540 18457290 SEPA</div>
+                    </div>
+                    
+                    <div class="place-self-center"><img class="w-8 " src="/images/icons/bank-note-01-l.svg"></div>
+                    <div class="text-lg">Save as receipt</div>
+                    <div class="place-self-center"><img class="w-8" src="/images/icons/chevron-right.svg"></div>
+                    
+                    <div class="place-self-center"><img class="w-8" src="/images/icons/receipt.svg"></div>
+                    <div class="text-lg">Category</div>
+                    <div class="place-self-center"><img class="w-8" src="/images/icons/chevron-right.svg"></div>
+
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+    
+    
+    
+    <script src="./node_modules/preline/dist/preline.js"></script>
+</body>
+</html>
