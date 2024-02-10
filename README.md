@@ -3,6 +3,8 @@
 
  ## Stack
  App is hand-crafted with Alpine.js and Tailwind CSS.
+ Building ready for deploy:
+ ```npx tailwindcss -i ./css/tailwind.css -o ./css/build.css --watch```
 
  ## Production
  App is built for Putain.

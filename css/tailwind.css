@@ -4,7 +4,7 @@
 
 body {
     background: #36BFFA;
-    background-image: url(/images/wallpaper.jpg);
+    background-image: url(../images/wallpaper.jpg);
     background-size: cover;
 }
 
