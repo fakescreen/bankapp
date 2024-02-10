@@ -19,9 +19,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - name: Test SSH connection
-        run: ssh -vT ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} exit
-
       - name: Rsync files
         run: rsync -avz --exclude '.git*' ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ secrets.TARGET_DIRECTORY }}
         env:
