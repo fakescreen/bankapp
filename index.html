@@ -6,11 +6,11 @@
 
     <title>Bank App</title>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/images/icons/icon-rounded-96x96.png">
-    <link rel="apple-touch-icon-precomposed" href="/images/icons/icon-rounded-152x152.png">
-    <link href="./css/tailwind.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/icons/icon-rounded-96x96.png">
+    <link rel="apple-touch-icon-precomposed" href="images/icons/icon-rounded-152x152.png">
+    <link href="css/tailwind.css" rel="stylesheet">
+    <script defer src="js/alpinejs.3.x.x.min.js"></script>
 </head>
 <body>
 
@@ -20,9 +20,9 @@
         animateOnPage3: false,
         showModal: false,
         cards: [
-            { icon: '/images/icons/credit-card.svg', text: 'View Cards' },
-            { icon: '/images/icons/shopping-bag.svg', text: 'Pay Direct' },
-            { icon: '/images/icons/map-pin.svg', text: 'Bank Nearby' }
+            { icon: 'images/icons/credit-card.svg', text: 'View Cards' },
+            { icon: 'images/icons/shopping-bag.svg', text: 'Pay Direct' },
+            { icon: 'images/icons/map-pin.svg', text: 'Bank Nearby' }
         ]
     }"
     >
@@ -39,8 +39,8 @@
         >
 
             <div class="flex justify-between px-5 pt-8">
-                <img class="w-20" src="/images/logo.png" alt="bank">
-                <img class="size-14" src="/images/top-menu-dots.png" alt="navigation">
+                <img class="w-20" src="images/logo.png" alt="bank">
+                <img class="size-14" src="images/top-menu-dots.png" alt="navigation">
             </div>
 
             <div class="fixed bottom-0 left-4 right-4 py-10">
@@ -75,11 +75,11 @@
             x-transition:leave="clearTimeout(timer)"
         >
             <div class="fixed top-8 left-5 right-5 flex justify-between">
-                <img class="w-8" src="/images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
-                <img class="w-14" src="/images/top-menu-lock.png" alt="navigation">
+                <img class="w-8" src="images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
+                <img class="w-14" src="images/top-menu-lock.png" alt="navigation">
             </div>
         
-            <img x-show="currentPage === 'page2'" class="size-32 animate-pulse" x-bind:class="{'animate-pulse': !showFacial, 'animate-ping': showFacial}" src="/images/face-recognition.svg" alt="facial">
+            <img x-show="currentPage === 'page2'" class="size-32 animate-pulse" x-bind:class="{'animate-pulse': !showFacial, 'animate-ping': showFacial}" src="images/face-recognition.svg" alt="facial">
            
         </div>
 
@@ -101,24 +101,24 @@
                 })"
         >
           
-            <img class="w-8 fixed top-11 left-5" src="/images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
+            <img class="w-8 fixed top-11 left-5" src="images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
 
             <div 
                 x-bind:class="{'translate-y-[-50%]': animateOnPage3, 'translate-y-0': !animateOnPage3}"
                 class="transition-transform duration-[800ms] backdrop-blur-md text-white/10 grow grid gap-2 grid-cols-2 rounded-3xl border-2 border-white/10 shadow-2xl p-2 pl-6  pb-6"
             >
                 <div class="self-center col-span-2 text-xl font-semibold">Banking Card.</div>
-                <div><img class="w-20" src="/images/logo-transparent.png" alt="bank"></div>
+                <div><img class="w-20" src="images/logo-transparent.png" alt="bank"></div>
                 <div class="pt-6">PERSONAL</div><div class="col-span-2 pt-6">VALID UNTIL</div><div></div>
                 <div class="col-span-3 text-lg font-medium">1234 4321 1234 4321</div>
             </div>
             
             <div class="absolute bottom-0 left-0 right-0 bg-slate-200 backdrop-filter backdrop-blur-lg py-6">
                 <div class="flex justify-around items-center">
-                    <img class="w-8" src="/images/icons/home-04.svg" alt="tab">
-                    <img class="w-8" src="/images/icons/bank-note-01.svg" alt="tab" @click="showModal = true">
-                    <img class="w-8" src="/images/icons/piggy-bank-02.svg" alt="tab">
-                    <img class="w-8" src="/images/icons/credit-card-02.svg" alt="tab">
+                    <img class="w-8" src="images/icons/home-04.svg" alt="tab">
+                    <img class="w-8" src="images/icons/bank-note-01.svg" alt="tab" @click="showModal = true">
+                    <img class="w-8" src="images/icons/piggy-bank-02.svg" alt="tab">
+                    <img class="w-8" src="images/icons/credit-card-02.svg" alt="tab">
                 </div>
             </div>
 
@@ -137,7 +137,7 @@
                 <div class="p-1 mx-16 rounded bg-sky-100" @click="showModal = false"></div>
                 
                 <div class="flex px-3 py-8 gap-3 items-center">
-                    <img class="size-20" src="/images/logo.png" alt="bank">
+                    <img class="size-20" src="images/logo.png" alt="bank">
                     <div>
                         <div class="text-sky-900 font-medium text-lg leading-tight">Direct debit</div>
                         <div class="text-sm text-sky-700">Today</div>
@@ -151,13 +151,13 @@
                         <div class="italic text-sm pt-1">1BT2540 18457290 SEPA</div>
                     </div>
                     
-                    <div class="place-self-center"><img class="w-8 " src="/images/icons/receipt.svg"></div>
+                    <div class="place-self-center"><img class="w-8 " src="images/icons/receipt.svg"></div>
                     <div class="text-lg">Save as receipt</div>
-                    <div class="place-self-center"><img class="w-8" src="/images/icons/chevron-right.svg"></div>
+                    <div class="place-self-center"><img class="w-8" src="images/icons/chevron-right.svg"></div>
                     
-                    <div class="place-self-center"><img class="w-8" src="/images/icons/bank-note-01-l.svg"></div>
+                    <div class="place-self-center"><img class="w-8" src="images/icons/bank-note-01-l.svg"></div>
                     <div class="text-lg">Category</div>
-                    <div class="place-self-center"><img class="w-8" src="/images/icons/chevron-right.svg"></div>
+                    <div class="place-self-center"><img class="w-8" src="images/icons/chevron-right.svg"></div>
 
                 </div>
             </div>
