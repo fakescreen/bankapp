@@ -105,6 +105,7 @@
             <img class="w-8 fixed top-11 left-5" src="images/arrow-left.svg" alt="bank" @click="currentPage = 'page1';">
 
             <div 
+                @click="showModal = false"
                 x-bind:class="{'translate-y-[-50%]': animateOnPage3, 'translate-y-0': !animateOnPage3}"
                 class="transition-transform duration-[800ms] backdrop-blur-md text-white/10 grow grid gap-2 grid-cols-2 rounded-3xl border-2 border-white/10 shadow-2xl p-2 pl-6  pb-6"
             >
@@ -164,8 +165,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Offline mode -->
-    <script src="js/main.js"></script>
 </body>
 </html>
