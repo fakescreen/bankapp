@@ -79,7 +79,7 @@
                 <img class="w-14" src="images/top-menu-lock.png" alt="navigation">
             </div>
         
-            <img x-show="currentPage === 'page2'" class="size-32 animate-pulse" x-bind:class="{'animate-pulse': !showFacial, 'animate-ping': showFacial}" src="images/face-recognition.svg" alt="facial">
+            <img src="images/face-recognition.svg" x-show="currentPage === 'page2'" class="size-32 animate-pulse" x-bind:class="{'animate-pulse': !showFacial, 'animate-ping': showFacial}" alt="facial">
            
         </div>
 
@@ -163,5 +163,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Offline mode -->
+    <script src="js/main.js"></script>
 </body>
 </html>
