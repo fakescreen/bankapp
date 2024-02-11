@@ -1,6 +1,7 @@
 // service-worker.js
-const CACHE_NAME = 'dynamic-cache-v1';
+const CACHE_NAME = 'dynamic-cache-v2';
 const BASE_PATH = '/props/bankapp';
+const OFFLINE_URL = `${BASE_PATH}/offline.html`;
 
 self.addEventListener('install', event => {
     // This event happens once, so it's a good place to cache static assets
@@ -8,6 +9,7 @@ self.addEventListener('install', event => {
         caches.open(CACHE_NAME).then(cache => {
             return cache.addAll([
                 // List of URLs to cache
+                OFFLINE_URL,
                 `${BASE_PATH}/css/build.css`,
                 `${BASE_PATH}/js/alpinejs.3.x.x.min.js`,
                 `${BASE_PATH}/images/icons/credit-card.svg`,
@@ -48,6 +50,7 @@ self.addEventListener('fetch', event => {
                     if (response) {
                         return response;
                     }
+                    return caches.match(OFFLINE_URL);
                     // Optionally return a default offline page for navigate requests
                 });
             })
