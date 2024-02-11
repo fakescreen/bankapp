@@ -26,7 +26,8 @@ self.addEventListener('install', event => {
                 '${BASE_PATH}/images/icons/receipt.svg',
                 '${BASE_PATH}/images/icons/chevron-right.svg',
                 '${BASE_PATH}/images/icons/bank-note-01-l.svg',
-                '${BASE_PATH}/images/face-recognition.svg'
+                '${BASE_PATH}/images/face-recognition.svg',
+                '${BASE_PATH}/images/wallpaper.jpg',
             ]);
         })
     );
