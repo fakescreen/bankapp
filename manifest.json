@@ -1,12 +1,13 @@
 {
     "name": "Bank App",
     "short_name": "Banking",
-    "start_url": "home",
+    "start_url": "./",
     "scope": "/",
     "display": "standalone",
     "theme_color": "#36BFFA",
     "background_color": "#36BFFA",
     "description": "Fakescreen banking app voor Putain",
+    "orientation": "portrait",
     "icons": [
       {
         "src": "images/icons/icon-maskable-192x192.png",
