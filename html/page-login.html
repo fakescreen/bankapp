@@ -1,0 +1,17 @@
+
+<div class="flex justify-between px-5 pt-8">
+    <img class="w-20" src="images/logo.png" alt="bank">
+    <img class="size-14" src="images/top-menu-dots.png" alt="navigation">
+</div>
+
+<div class="fixed bottom-0 left-4 right-4 py-10">
+    <div class="flex justify-stretch gap-x-2 gap-y-8 flex-wrap">
+        <button @click="currentPage = 'page2'" type="button" class="w-full shadow-lg py-3.5 inline-flex justify-center items-center text-xl font-semibold rounded-full bg-white text-sky-500 active:bg-sky-200">Log in</button>
+        <template x-for="card in cards" :key="card.icon">
+            <div class="text-center py-4 flex-grow bg-sky-50 rounded-3xl shadow-lg">
+                <img class="inline-flex justify-center w-12 pb-2" :src="card.icon" :alt="card.text">
+                <p class="text-sm text-slate-500" x-text="card.text"></p>
+            </div>
+        </template>
+    </div>
+</div>

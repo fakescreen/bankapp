@@ -1,13 +1,16 @@
 # fakescreen bankapp
- A banking app simulation
+A banking app simulation
 
- ## Stack
- App is hand-crafted with Alpine.js and Tailwind CSS.
- Building ready for deploy:
- ```npx tailwindcss -i ./css/tailwind.css -o ./css/build.css --watch```
+## Stack
+App is hand-crafted with HTMX, Alpine.js and Tailwind CSS.
 
- ## Production
- App is built for Putain.
+Interestingle, only the CSS needs building.
+Building for dev and deploy:
+```npm run dev```
+```npx tailwindcss -i ./css/tailwind.css -o ./css/build.css --watch```
 
- ## Internal job sheet
- https://docs.google.com/document/d/1f8C_9A54JityPeVYeidnHbXHAMCifKod
+## Production
+App is built for Putain.
+
+## Internal job sheet
+https://docs.google.com/document/d/1f8C_9A54JityPeVYeidnHbXHAMCifKod
