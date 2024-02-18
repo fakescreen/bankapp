@@ -13,10 +13,56 @@
     <script src="js/htmx.1.9.10.min.js" crossorigin="anonymous"></script>
     <script defer src="js/alpinejs.3.x.x.min.js"></script>
 </head>
-<body class="bg-no-repeat">
+<body
+    x-data="{
+        optimal: navigator.userAgent.match('CriOS')
+    }"
+    class="bg-sky-400"
+>
+    <img class="w-8 fixed top-11 left-5" src="images/arrow-left.svg" @click="window.open('index.html', '_self')">
 
-    <div id="detect"></div>
+    <div class="flex flex-col mx-6 my-24 gap-4">
 
-    <script defer src="js/install.js"></script>
+        <div x-show="!optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+            <img class="inline-flex w-8" src="images/icons/wifi-off-green.svg">
+            <p class=" text-slate-500">
+                Good browser for offline mode 👌🏽
+            </p>
+        </div>
+
+        <div x-show="!optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+            <img class="inline-flex w-12" src="images/icons/wifi-off-orange.svg">
+            <p class=" text-slate-500">
+                Consider using Chrome for offline mode.
+                <a href="https://apps.apple.com/us/app/google-chrome/id535886823" target="_blank" class="font-bold">Get Chrome</a>
+            </p>
+        </div>
+
+        <div x-show="!optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+            <img class="inline-flex w-8" src="images/icons/share-01.svg">
+            <p class=" text-slate-500">
+                <strong>Step 1</strong> - Click on share icon in the bottom.
+            </p>
+        </div>
+
+        <div class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+            <img class="inline-flex w-12" src="images/icons/plus-square.svg">
+            <p class=" text-slate-500">
+                <strong>Step 2</strong> - Scroll down and click “Add to Home Screen”.
+            </p>
+        </div>
+
+        <div class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+            <img class="inline-flex w-12" src="images/icons/grid-01.svg">
+            <p class=" text-slate-500">
+                <strong>Step 3</strong> - You now have the Bank app on your home screen ✨
+            </p>
+        </div>
+
+        <div class="pt-4 text-white text-center">
+            Take the <strong>Creative Commons license (BY-SA 4.0)</strong> in account when using this app for any publication. Check the license file.
+        </div>
+
+    </div>
 </body>
 </html>

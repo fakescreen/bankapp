@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background: #36BFFA;
-    background-image: url(../images/wallpaper.jpg);
-    background-size: cover;
-}
-
 .grading-background {
     background:linear-gradient(0deg, rgba(54,191,250,1) 0%, rgba(54,191,250,1) 25%, rgba(54,191,250,0) 50%, rgba(54,191,250,0) 100%);
 }
