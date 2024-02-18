@@ -23,7 +23,7 @@
 
     <div class="flex flex-col mx-6 my-24 gap-4">
 
-        <div x-show="!optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+        <div x-show="optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
             <img class="inline-flex w-8" src="images/icons/wifi-off-green.svg">
             <p class=" text-slate-500">
                 Good browser for offline mode 👌🏽
@@ -38,10 +38,17 @@
             </p>
         </div>
 
+        <div x-show="optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
+            <img class="inline-flex w-8" src="images/icons/share-01.svg">
+            <p class=" text-slate-500">
+                <strong>Step 1</strong> - Click on share icon in the top right.
+            </p>
+        </div>
+
         <div x-show="!optimal" class="flex p-4 gap-4 flex-grow bg-sky-50 rounded-3xl shadow-lg text-sky-500">
             <img class="inline-flex w-8" src="images/icons/share-01.svg">
             <p class=" text-slate-500">
-                <strong>Step 1</strong> - Click on share icon in the bottom.
+                <strong>Step 1</strong> - Click on share icon at the bottom.
             </p>
         </div>
 
