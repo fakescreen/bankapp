@@ -2,10 +2,11 @@
 module.exports = {
   darkMode: 'media',
   content: [
-    "./pages/**/*.{html,js}",
+    "./**/*.{html,js}",
     "./index.html"
   ],
   theme: {
     extend: {},
-  }
+  },
+  plugins: [],
 }

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwindcss -o css/build.css --minify",
+    "build:css": "tailwindcss -i css/tailwind.css -o css/build.css --minify",
     "build": "npm run build:css",
-    "dev": "vite"
+    "dev": "tailwindcss -i css/tailwind.css -o css/build.css --minify && vite"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
